@@ -1,0 +1,48 @@
+# Dependencies
+node_modules
+/.pnp
+.pnp.js
+
+# Build and cache outputs
+/build
+/.cache
+.vite
+.storybook
+storybook-static
+dist
+
+# Environment variables & secrets
+.env
+.env.*
+!.env.example
+.dev.vars
+!.dev.vars.example
+
+# Cloudflare Wrangler
+.wrangler
+
+# Draco WASM decoder files (fetched via postinstall script)
+public/draco
+
+# Python / Virtual Environment
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+
+# IDE & OS files
+.DS_Store
+Thumbs.db
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Documentation / Personal CV files
+docs
