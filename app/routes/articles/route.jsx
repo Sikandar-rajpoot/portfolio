@@ -6,11 +6,21 @@ import { baseMeta } from '~/utils/meta';
 import config from '~/config.json';
 import { formatTimecode, readingTime } from '~/utils/timecode';
 
+const mdxModules = import.meta.glob('../articles.*.mdx', { eager: true });
+const rawModules = import.meta.glob('../articles.*.mdx', { query: '?raw', import: 'default', eager: true });
+
 export async function loader({ request }) {
-  const slug = request.url.split('/').at(-1);
-  const module = await import(`../articles.${slug}.mdx`);
-  const text = await import(`../articles.${slug}.mdx?raw`);
-  const readTime = readingTime(text.default);
+  const url = new URL(request.url);
+  const slug = url.pathname.split('/').filter(Boolean).pop();
+  const moduleKey = `../articles.${slug}.mdx`;
+  const module = mdxModules[moduleKey];
+  const rawText = rawModules[moduleKey];
+
+  if (!module) {
+    throw new Response('Not Found', { status: 404 });
+  }
+
+  const readTime = readingTime(rawText);
   const ogImage = `${config.url}/static/${slug}-og.jpg`;
 
   return json({

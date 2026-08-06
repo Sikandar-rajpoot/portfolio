@@ -1,26 +1,26 @@
 import { formatTimecode, readingTime } from '~/utils/timecode';
 
+const modules = import.meta.glob('../articles.*.mdx', { eager: true });
+const rawModules = import.meta.glob('../articles.*.mdx', { query: '?raw', import: 'default', eager: true });
+
 export async function getPosts() {
-  const modules = import.meta.glob('../articles.*.mdx', { eager: true });
   const build = await import('virtual:remix/server-build');
 
-  const posts = await Promise.all(
-    Object.entries(modules).map(async ([file, post]) => {
-      let id = file.replace('../', 'routes/').replace(/\.mdx$/, '');
-      let slug = build.routes[id].path;
-      if (slug === undefined) throw new Error(`No route for ${id}`);
+  const posts = Object.entries(modules).map(([file, post]) => {
+    let id = file.replace('../', 'routes/').replace(/\.mdx$/, '');
+    let slug = build.routes[id]?.path;
+    if (slug === undefined) throw new Error(`No route for ${id}`);
 
-      const text = await import(`../articles.${slug}.mdx?raw`);
-      const readTime = readingTime(text.default);
-      const timecode = formatTimecode(readTime);
+    const rawText = rawModules[file];
+    const readTime = readingTime(rawText);
+    const timecode = formatTimecode(readTime);
 
-      return {
-        slug,
-        timecode,
-        frontmatter: post.frontmatter,
-      };
-    })
-  );
+    return {
+      slug,
+      timecode,
+      frontmatter: post.frontmatter,
+    };
+  });
 
   return sortBy(posts, post => post.frontmatter.date, 'desc');
 }
