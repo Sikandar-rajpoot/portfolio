@@ -21,6 +21,7 @@
     "@mdx-js/react": "^3.0.1",
     "@remix-run/cloudflare": "^2.7.1",
     "@remix-run/cloudflare-pages": "^2.7.1",
+    "@remix-run/node": "^2.17.5",
     "@remix-run/react": "^2.3.1",
     "framer-motion": "11.0.5",
     "isbot": "^4.1.0",
