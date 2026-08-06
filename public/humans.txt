@@ -1,0 +1,39 @@
+__  __  __
+\ \ \ \ \∕
+ \ \∕\ \
+  \∕  \∕
+
+The humans.txt file explains the team, technology,
+and graphic assets behind this site humanstxt.org.
+
+_______________________________________________________________________________
+
+DEVELOPER | エンジニア
+
+Muhammad Sikandar Mustafa
+Software Engineer & Python Backend Developer
+
+Backend & Tools:
+FastAPI, Django REST Framework, Celery, Redis
+PostgreSQL, Docker, GCP, OpenAI, LangChain
+
+github.com/sikandar-rajpoot
+linkedin.com/in/sikandar-rajpoot
+
+_______________________________________________________________________________
+
+TECHNOLOGY | テクノロジー
+
+React
+Remix
+Three.js
+Framer Motion
+Python / FastAPI
+
+_______________________________________________________________________________
+
+FONTS | フォント
+
+Gotham
+IPA Gothic Regular
+Hiragino Kaku Gothic W8
