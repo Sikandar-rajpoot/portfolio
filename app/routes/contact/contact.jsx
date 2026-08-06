@@ -14,7 +14,7 @@ import { useRef } from 'react';
 import { cssProps, msToNum, numToMs } from '~/utils/style';
 import { baseMeta } from '~/utils/meta';
 import { Form, useActionData, useNavigation } from '@remix-run/react';
-import { json } from '@remix-run/cloudflare';
+import { json } from '@remix-run/node';
 import styles from './contact.module.css';
 
 export const meta = () => {
@@ -61,10 +61,10 @@ export async function action({ context, request }) {
   }
 
   try {
-    const awsAccessKeyId = context?.cloudflare?.env?.AWS_ACCESS_KEY_ID;
-    const awsSecretAccessKey = context?.cloudflare?.env?.AWS_SECRET_ACCESS_KEY;
-    const toEmail = context?.cloudflare?.env?.EMAIL || 'rajpootatwork@gmail.com';
-    const fromEmail = context?.cloudflare?.env?.FROM_EMAIL || 'rajpootatwork@gmail.com';
+    const awsAccessKeyId = process.env.AWS_ACCESS_KEY_ID || context?.cloudflare?.env?.AWS_ACCESS_KEY_ID;
+    const awsSecretAccessKey = process.env.AWS_SECRET_ACCESS_KEY || context?.cloudflare?.env?.AWS_SECRET_ACCESS_KEY;
+    const toEmail = process.env.EMAIL || context?.cloudflare?.env?.EMAIL || 'rajpootatwork@gmail.com';
+    const fromEmail = process.env.FROM_EMAIL || context?.cloudflare?.env?.FROM_EMAIL || 'rajpootatwork@gmail.com';
 
     if (awsAccessKeyId && awsSecretAccessKey) {
       const { SESClient, SendEmailCommand } = await import('@aws-sdk/client-ses');
