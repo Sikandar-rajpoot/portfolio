@@ -63,8 +63,7 @@ export const Home = () => {
           if (entry.isIntersecting) {
             const section = entry.target;
             observer.unobserve(section);
-            if (visibleSections.includes(section)) return;
-            setVisibleSections(prevSections => [...prevSections, section]);
+            setVisibleSections(prev => (prev.includes(section) ? prev : [...prev, section]));
           }
         });
       },
@@ -73,22 +72,22 @@ export const Home = () => {
 
     const indicatorObserver = new IntersectionObserver(
       ([entry]) => {
-        setScrollIndicatorHidden(!entry.isIntersecting);
+        if (entry) setScrollIndicatorHidden(!entry.isIntersecting);
       },
       { rootMargin: '-100% 0px 0px 0px' }
     );
 
     sections.forEach(section => {
-      sectionObserver.observe(section.current);
+      if (section.current) sectionObserver.observe(section.current);
     });
 
-    indicatorObserver.observe(intro.current);
+    if (intro.current) indicatorObserver.observe(intro.current);
 
     return () => {
       sectionObserver.disconnect();
       indicatorObserver.disconnect();
     };
-  }, [visibleSections]);
+  }, []);
 
   return (
     <div className={styles.home}>
