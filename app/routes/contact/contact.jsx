@@ -15,7 +15,6 @@ import { cssProps, msToNum, numToMs } from '~/utils/style';
 import { baseMeta } from '~/utils/meta';
 import { Form, useActionData, useNavigation } from '@remix-run/react';
 import { json } from '@remix-run/cloudflare';
-import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
 import styles from './contact.module.css';
 
 export const meta = () => {
@@ -68,6 +67,7 @@ export async function action({ context, request }) {
     const fromEmail = context?.cloudflare?.env?.FROM_EMAIL || 'rajpootatwork@gmail.com';
 
     if (awsAccessKeyId && awsSecretAccessKey) {
+      const { SESClient, SendEmailCommand } = await import('@aws-sdk/client-ses');
       const ses = new SESClient({
         region: 'us-east-1',
         credentials: {
