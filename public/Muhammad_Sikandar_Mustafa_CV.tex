@@ -1,0 +1,175 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Muhammad Sikandar Mustafa} \\ \vspace{8pt}
+    \large Software Engineer \\ \vspace{5pt}
+    \small
+    \textbf{Phone:} \href{tel:+923016977287}{+92-301-6977287} $|$
+    \textbf{Location:} Bahawalpur, Pakistan \\
+    \textbf{Email:} \href{mailto:rajpootatwork@gmail.com}{\underline{rajpootatwork@gmail.com}} $|$
+    \textbf{GitHub:} \href{https://github.com/sikandar-rajpoot}{\underline{github.com/sikandar-rajpoot}} $|$
+    \textbf{LinkedIn:} \href{https://www.linkedin.com/in/sikandar-rajpoot/}{\underline{linkedin.com/in/sikandar-rajpoot}}
+\end{center}
+
+%-----------SUMMARY-----------
+\section{Professional Summary}
+\small{Python Backend Developer with 3 years of experience building production-grade systems. Specializes in RESTful API development using FastAPI and Django, with expertise in microservices architecture, authentication (JWT/OAuth)(RBAC/ABAC/ReBAC, and distributed task processing. Proficient in PostgreSQL, Redis caching, and containerized deployments. Proven ability to integrate AI/ML services and deliver scalable infrastructure in agile environments.}
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: Python, JavaScript, HTML/CSS, SQL} \\
+     \textbf{Frameworks}{: FastAPI, Django REST Framework, Flask, Pydantic, SQLAlchemy, Celery} \\
+     \textbf{Databases}{: PostgreSQL, Redis, Supabase} \\
+     \textbf{Cloud \& DevOps}{: GCP (Cloud Tasks, Pub/Sub), Docker, Git, CI/CD} \\
+     \textbf{Architecture}{: RESTful APIs, Microservices, Multi-tenant, API Gateway, JWT/OAuth, Rate Limiting, Caching, Message Queues} \\
+     \textbf{AI/ML}{: OpenAI, Gemini API, LangChain, LangGraph, Hugging Face}
+    }}
+ \end{itemize}
+
+%-----------EXPERIENCE-----------
+\section{Professional Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Backend Developer}{2026 -- Present}
+      {ThinkRealty}{Remote}
+      \resumeItemListStart
+        \resumeItem{Accelerated development of a \textbf{multi-tenant real estate CRM} from 40\% to 90\% completion within 6 months by designing and developing core backend microservices.}
+        \resumeItem{Implemented API Gateway for modular communication between microservices and multi-tenant support in a 3-layer architecture.}
+        \resumeItem{Configured centralized Redis-based cron jobs with Celery to manage scheduled background tasks across services.}
+        \resumeItem{Built a \textbf{multi-modal WhatsApp LLM} agent for automated customer interactions and integrated \textbf{Bayut} and \textbf{PropertyFinder} APIs for real-time property listings.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Backend Software Engineer}{2024 -- 2026}
+      {Rivon AI}{Onsite}
+      \resumeItemListStart
+        \resumeItem{Built async REST APIs with \textbf{FastAPI}, achieving 40\% faster response times; designed schemas with SQLAlchemy/Alembic for zero-downtime deployments}
+        \resumeItem{Optimized PostgreSQL queries through strategic indexing, reducing execution time by 35\%}
+        \resumeItem{Implemented JWT authentication, rate limiting, and Redis caching for secure, high-performance endpoints}
+        \resumeItem{Established Docker workflows and led code reviews, reducing frontend integration time by 30\%}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Software Engineer}{2023 -- 2024}
+      {Enigmatix (Pvt) Ltd}{Onsite}
+      \resumeItemListStart
+        \resumeItem{Developed and maintained web applications using \textbf{Python} and JavaScript, collaborating with senior engineers on feature implementation}
+        \resumeItem{Built responsive frontend components with HTML/CSS and integrated REST APIs for data-driven functionality}
+        \resumeItem{Participated in code reviews, wrote unit tests, and contributed to agile sprints with cross-functional teams}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+  \resumeSubHeadingListStart
+
+    
+    \resumeSubheading
+      {Proplytics - Multi-Tenant Real Estate CRM}{2026}
+      {Backend Developer}{FastAPI, API Gateway, Celery, Redis}
+      \resumeItemListStart
+        \resumeItem{Architected multi-tenant CRM backend with a 3-layer microservices architecture for a Dubai real estate agency.}
+        \resumeItem{Implemented an API Gateway for modular communication between microservices and multi-tenant support.}
+        \resumeItem{Set up centralized Redis-based cron jobs with Celery to manage scheduled background tasks across services.}
+        \resumeItem{Built a multi-modal WhatsApp LLM agent for automated customer interactions and integrated Bayut and PropertyFinder APIs for real-time property listings.}
+      \resumeItemListEnd
+      
+    \resumeSubheading
+      {Scaffold -- AI Agent Platform for Creatives}{2025}
+      {Lead Backend Engineer}{FastAPI, Supabase, Celery, Redis}
+      \resumeItemListStart
+        \resumeItem{Architected backend for creatives to build AI agents for content generation (radio ads, logos, articles, social media)}
+        \resumeItem{Implemented Supabase (Auth/RBAC, Storage); built Celery/Redis queue; integrated Fal AI, OpenAI, LangSmith}
+        \resumeItem{Developed \textbf{Stripe} payments (subscriptions, credits), admin dashboard, and client marketplace}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {TruckRoute Planner -- HOS-Compliant Route Planning API}{2024}
+      {Backend Developer}{Django REST Framework, Celery}
+      \resumeItemListStart
+        \resumeItem{Built \textbf{Django} API for HOS-compliant truck routing with ELD log generation for 70-hour/8-day cycles}
+        \resumeItem{Implemented FMCSA compliance engine and spatial queries for truck stops, fuel stations, route optimization}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {DMT Backend -- Device Management System}{2024}
+      {Backend Developer (Team)}{FastAPI, GCP}
+      \resumeItemListStart
+        \resumeItem{Developed Task Management module with hierarchical structures, SMS-based approval workflows}
+        \resumeItem{Built audit logging with change detection and notifications via \textbf{GCP} Pub/Sub; created analytics endpoints}
+        \resumeItem{Created detailed Documents Management System using \textbf{Amazon S3 - Cloud Object Storage} for managing all business documents}
+      \resumeItemListEnd
+
+
+  \resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Bachelor of Science in Computer Science (BSCS)}{2021 -- 2025}
+      {The Islamia University of Bahawalpur}{Bahawalpur, Pakistan}
+  \resumeSubHeadingListEnd
+
+%-----------SOFT SKILLS-----------
+\section{Professional Attributes}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     Problem-Solving $|$ System Architecture $|$ Code Review $|$ Technical Documentation $|$ Remote Collaboration $|$ Agile/Scrum
+    }}
+ \end{itemize}
+
+%-------------------------------------------
+\end{document}

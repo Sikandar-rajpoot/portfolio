@@ -117,12 +117,19 @@
   }
 }
 
-.button {
+.buttonGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spaceM);
+  margin-top: var(--spaceL);
   opacity: 0;
   transition: opacity var(--durationXL) ease var(--durationL);
 
   &[data-visible='true'] {
-    transform: none;
     opacity: 1;
   }
+}
+
+.button {
+  opacity: 1;
 }

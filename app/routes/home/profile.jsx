@@ -52,15 +52,26 @@ export const Profile = ({ id, visible, sectionRef }) => {
           <div className={styles.content} ref={nodeRef}>
             <div className={styles.column}>
               <ProfileText visible={visible} titleId={titleId} />
-              <Button
-                secondary
-                className={styles.button}
-                data-visible={visible}
-                href="/contact"
-                icon="send"
-              >
-                Send me a message
-              </Button>
+              <div className={styles.buttonGroup} data-visible={visible}>
+                <Button
+                  secondary
+                  className={styles.button}
+                  data-visible={visible}
+                  href="/contact"
+                  icon="send"
+                >
+                  Send me a message
+                </Button>
+                <Button
+                  className={styles.button}
+                  data-visible={visible}
+                  href="/Muhammad_Sikandar_Mustafa_CV.pdf"
+                  download="Muhammad_Sikandar_Mustafa_CV.pdf"
+                  icon="download"
+                >
+                  Download CV
+                </Button>
+              </div>
             </div>
             <div className={styles.column}>
               <div className={styles.tag} aria-hidden>
