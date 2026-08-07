@@ -8,6 +8,7 @@ export function useInViewport(
 ) {
   const [intersect, setIntersect] = useState(false);
   const [isUnobserved, setIsUnobserved] = useState(false);
+  const { root, rootMargin, threshold } = options;
 
   useEffect(() => {
     if (!elementRef?.current) return;
@@ -21,14 +22,14 @@ export function useInViewport(
         observer.unobserve(target);
         setIsUnobserved(true);
       }
-    }, options);
+    }, { root, rootMargin, threshold });
 
     if (!isUnobserved && shouldObserve) {
       observer.observe(elementRef.current);
     }
 
     return () => observer.disconnect();
-  }, [elementRef, unobserveOnIntersect, options, isUnobserved, shouldObserve]);
+  }, [elementRef, unobserveOnIntersect, root, rootMargin, threshold, isUnobserved, shouldObserve]);
 
   return intersect;
 }

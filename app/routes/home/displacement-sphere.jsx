@@ -190,7 +190,7 @@ export const DisplacementSphere = props => {
     return () => {
       cancelAnimationFrame(animation);
     };
-  }, [isInViewport, reduceMotion, rotationX, rotationY]);
+  }, [isInViewport, reduceMotion]);
 
   return (
     <Transition in timeout={3000} nodeRef={canvasRef}>
