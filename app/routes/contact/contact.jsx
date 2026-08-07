@@ -31,13 +31,15 @@ const EMAIL_PATTERN = /(.+)@(.+){2,}\.(.+){2,}/;
 
 export async function action({ context, request }) {
   const formData = await request.formData();
-  const isBot = String(formData.get('name'));
-  const email = String(formData.get('email'));
-  const message = String(formData.get('message'));
+  const botField = formData.get('bot_hp_field');
+  const email = String(formData.get('email') || '');
+  const message = String(formData.get('message') || '');
   const errors = {};
 
   // Return without sending if a bot trips the honeypot
-  if (isBot) return json({ success: true });
+  if (botField && String(botField).trim().length > 0) {
+    return json({ success: true });
+  }
 
   // Handle input validation on the server
   if (!email || !EMAIL_PATTERN.test(email)) {
@@ -142,7 +144,7 @@ export const Contact = () => {
             <Input
               className={styles.botkiller}
               label="Name"
-              name="name"
+              name="bot_hp_field"
               maxLength={MAX_EMAIL_LENGTH}
             />
             <Input
