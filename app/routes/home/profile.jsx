@@ -24,7 +24,7 @@ const ProfileText = ({ visible, titleId }) => (
     </Text>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
       Currently building multi-tenant microservices and multi-modal AI agents at{' '}
-      <Link href="https://github.com/sikandar-rajpoot">ThinkRealty</Link>. Previously developed high-performance async APIs at Rivon AI and web platforms at Enigmatix. Graduated with a BS in Computer Science from The Islamia University of Bahawalpur.
+      <Link href="https://www.thinkrealty.ae/" target="_blank" rel="noopener noreferrer">ThinkRealty</Link>. Previously developed high-performance async APIs at Rivon AI and web platforms at Enigmatix. Graduated with a BS in Computer Science from The Islamia University of Bahawalpur.
     </Text>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
       Interested in the tech stack and tools I use daily? Check out my <Link href="/uses">uses page</Link>.

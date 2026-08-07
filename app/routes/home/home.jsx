@@ -148,8 +148,8 @@ export const Home = () => {
         index={3}
         title="TruckRoute Planner — Route & Compliance API"
         description="HOS-compliant truck routing engine built with Django REST Framework, Celery spatial queries, FMCSA compliance rules, and ELD log generation."
-        buttonText="View project details"
-        buttonLink="/projects/slice"
+        buttonText="View GitHub repo"
+        buttonLink="https://github.com/sikandar-rajpoot"
         model={{
           type: 'laptop',
           alt: 'TruckRoute Planner API',
