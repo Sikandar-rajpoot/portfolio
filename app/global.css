@@ -76,8 +76,24 @@ html, body:focus {
     line-height: var(--lineHeightBody);
     color: var(--textBody);
 
-    @media (--mediaTablet) {
+    @media (max-width: 1040px) {
       font-size: var(--fontSizeBodyS);
+    }
+  }
+
+  @media (max-width: 1040px) {
+    :root {
+      --spaceOuter: 16px;
+      --fontSizeH0: 2.75rem;
+      --fontSizeH1: 2.25rem;
+      --fontSizeH2: 1.75rem;
+      --fontSizeH3: 1.4rem;
+      --fontSizeH4: 1.2rem;
+      --fontSizeH5: 1.05rem;
+      --fontSizeBodyXL: 1.1rem;
+      --fontSizeBodyL: 1.0rem;
+      --fontSizeBodyM: 0.95rem;
+      --fontSizeBodyS: 0.875rem;
     }
   }
 
