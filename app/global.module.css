@@ -1,5 +1,69 @@
 @layer theme, base, components, layout;
 
+/* Top-level global scrollbar rules - overrides cascade layers in production builds */
+:global(html, body) {
+  background: var(--background);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden !important;
+  opacity: 1;
+  scrollbar-width: thin;
+  scrollbar-color: #F67D31 transparent;
+}
+
+:global(html, body):focus {
+  outline: none;
+}
+
+:global(::-webkit-scrollbar) {
+  width: 6px !important;
+  height: 6px !important;
+  background: transparent !important;
+}
+
+:global(::-webkit-scrollbar-button),
+:global(::-webkit-scrollbar-button:single-button),
+:global(::-webkit-scrollbar-button:vertical:decrement),
+:global(::-webkit-scrollbar-button:vertical:increment),
+:global(::-webkit-scrollbar-button:horizontal:decrement),
+:global(::-webkit-scrollbar-button:horizontal:increment),
+:global(::-webkit-scrollbar-button:start:decrement),
+:global(::-webkit-scrollbar-button:end:increment),
+:global(::-webkit-scrollbar-button:start:increment),
+:global(::-webkit-scrollbar-button:end:decrement) {
+  display: none !important;
+  width: 0px !important;
+  height: 0px !important;
+  max-width: 0px !important;
+  max-height: 0px !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+:global(::-webkit-scrollbar-track),
+:global(::-webkit-scrollbar-track-piece) {
+  background: transparent !important;
+  border: none !important;
+}
+
+:global(::-webkit-scrollbar-thumb) {
+  background: #F67D31 !important;
+  border-radius: 9999px !important;
+  border: none !important;
+}
+
+:global(::-webkit-scrollbar-thumb:hover) {
+  background: #e56c20 !important;
+}
+
+:global(::-webkit-scrollbar-corner) {
+  background: transparent !important;
+}
+
 @layer base {
   :global(html) {
     box-sizing: border-box;
@@ -14,71 +78,6 @@
     @media (--mediaTablet) {
       font-size: var(--fontSizeBodyS);
     }
-  }
-
-  :global(html, body) {
-    background: var(--background);
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden !important;
-    opacity: 1;
-    scrollbar-width: thin;
-    scrollbar-color: #F67D31 transparent;
-  }
-
-  :global(html, body):focus {
-    outline: none;
-  }
-
-  /* Custom thin scrollbar matching orange #F67D31 theme */
-  :global(::-webkit-scrollbar) {
-    width: 6px !important;
-    height: 6px !important;
-    background: transparent !important;
-  }
-
-  /* Force eliminate all webkit scrollbar arrow buttons */
-  :global(::-webkit-scrollbar-button),
-  :global(::-webkit-scrollbar-button:single-button),
-  :global(::-webkit-scrollbar-button:vertical:decrement),
-  :global(::-webkit-scrollbar-button:vertical:increment),
-  :global(::-webkit-scrollbar-button:horizontal:decrement),
-  :global(::-webkit-scrollbar-button:horizontal:increment),
-  :global(::-webkit-scrollbar-button:start:decrement),
-  :global(::-webkit-scrollbar-button:end:increment),
-  :global(::-webkit-scrollbar-button:start:increment),
-  :global(::-webkit-scrollbar-button:end:decrement) {
-    display: none !important;
-    width: 0px !important;
-    height: 0px !important;
-    max-width: 0px !important;
-    max-height: 0px !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-    background: transparent !important;
-    border: none !important;
-  }
-
-  :global(::-webkit-scrollbar-track),
-  :global(::-webkit-scrollbar-track-piece) {
-    background: transparent !important;
-    border: none !important;
-  }
-
-  :global(::-webkit-scrollbar-thumb) {
-    background: #F67D31 !important;
-    border-radius: 9999px !important;
-    border: none !important;
-  }
-
-  :global(::-webkit-scrollbar-thumb:hover) {
-    background: #e56c20 !important;
-  }
-
-  :global(::-webkit-scrollbar-corner) {
-    background: transparent !important;
   }
 
   :global(:where(code, pre)) {
