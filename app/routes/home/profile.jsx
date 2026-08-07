@@ -1,4 +1,4 @@
-import sikandarImg from '~/assets/sikandar.jpg';
+import sikandarImg from '~/assets/sikandar.png';
 import profileImgPlaceholder from '~/assets/profile-placeholder.jpg';
 import { Button } from '~/components/button';
 import { DecoderText } from '~/components/decoder-text';
