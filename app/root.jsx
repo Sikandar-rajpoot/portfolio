@@ -13,7 +13,7 @@ import { createCookieSessionStorage, json } from '@remix-run/node';
 import { ThemeProvider, themeStyles } from '~/components/theme-provider';
 import GothamBook from '~/assets/fonts/gotham-book.woff2';
 import GothamMedium from '~/assets/fonts/gotham-medium.woff2';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { Error } from '~/layouts/error';
 import { VisuallyHidden } from '~/components/visually-hidden';
 import { Navbar } from '~/layouts/navbar';
@@ -93,7 +93,11 @@ export default function App() {
     );
   }
 
+  const consoleLogged = useRef(false);
+
   useEffect(() => {
+    if (consoleLogged.current) return;
+    consoleLogged.current = true;
     console.info(
       `${config.ascii}\n`,
       `Taking a peek huh? Check out the source code: ${config.repo}\n\n`

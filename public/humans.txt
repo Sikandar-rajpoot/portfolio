@@ -1,14 +1,14 @@
-__  __  __
-\ \ \ \ \∕
- \ \∕\ \
-  \∕  \∕
+ ___
+/ __|
+\__ \
+|___/
 
-The humans.txt file explains the team, technology,
+The humans.txt file explains the technology,
 and graphic assets behind this site humanstxt.org.
 
 _______________________________________________________________________________
 
-DEVELOPER | エンジニア
+DEVELOPER
 
 Muhammad Sikandar Mustafa
 Software Engineer & Python Backend Developer
@@ -22,7 +22,7 @@ linkedin.com/in/sikandar-rajpoot
 
 _______________________________________________________________________________
 
-TECHNOLOGY | テクノロジー
+TECHNOLOGY
 
 React
 Remix
@@ -32,7 +32,7 @@ Python / FastAPI
 
 _______________________________________________________________________________
 
-FONTS | フォント
+FONTS
 
 Gotham
 IPA Gothic Regular
