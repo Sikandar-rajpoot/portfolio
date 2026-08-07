@@ -1,64 +1,84 @@
-@custom-media --mediaDesktop (max-width: 2080px);
-@custom-media --mediaLaptop (max-width: 1680px);
-@custom-media --mediaTablet (max-width: 1040px);
-@custom-media --mediaMobile (max-width: 696px);
-@custom-media --mediaMobileLS (max-height: 696px);
-@custom-media --mediaMobileS (max-width: 400px);
-@custom-media --mediaUseMotion (prefers-reduced-motion: no-preference);
-@custom-media --mediaReduceMotion (prefers-reduced-motion: reduce);
-@custom-media --mediaTouch (pointer: coarse);
-@custom-media --mediaNoTouch (pointer: fine);
+@layer theme, base, components, layout;
 
 @layer base {
-  :global(:root) {
-    --mobileNavOffset: calc(var(--spaceOuter) * 2 + var(--space2XL));
+  :global(html) {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: var(--fontStack);
+    font-weight: var(--fontWeightRegular);
+    font-size: var(--fontSizeBodyM);
+    line-height: var(--lineHeightBody);
+    color: var(--textBody);
+
+    @media (--mediaTablet) {
+      font-size: var(--fontSizeBodyS);
+    }
   }
 
   :global(html, body) {
-    font-family: var(--fontStack);
-    font-weight: var(--fontWeightRegular);
-    background-color: var(--background);
-    transition: var(--durationM) ease;
-    transition-property: background, opacity;
-    color: var(--textBody);
+    background: var(--background);
+    margin: 0;
+    padding: 0;
     width: 100%;
     max-width: 100%;
-    overflow-x: hidden;
+    overflow-x: hidden !important;
     opacity: 1;
+    scrollbar-width: thin;
+    scrollbar-color: #F67D31 transparent;
   }
 
   :global(html, body):focus {
     outline: none;
   }
 
-  /* Custom modern scrollbar matching darker orange #F67D31 theme */
+  /* Custom thin scrollbar matching orange #F67D31 theme */
   :global(::-webkit-scrollbar) {
-    width: 8px;
-    height: 8px;
+    width: 6px !important;
+    height: 6px !important;
+    background: transparent !important;
   }
 
-  :global(::-webkit-scrollbar-button) {
+  /* Force eliminate all webkit scrollbar arrow buttons */
+  :global(::-webkit-scrollbar-button),
+  :global(::-webkit-scrollbar-button:single-button),
+  :global(::-webkit-scrollbar-button:vertical:decrement),
+  :global(::-webkit-scrollbar-button:vertical:increment),
+  :global(::-webkit-scrollbar-button:horizontal:decrement),
+  :global(::-webkit-scrollbar-button:horizontal:increment),
+  :global(::-webkit-scrollbar-button:start:decrement),
+  :global(::-webkit-scrollbar-button:end:increment),
+  :global(::-webkit-scrollbar-button:start:increment),
+  :global(::-webkit-scrollbar-button:end:decrement) {
     display: none !important;
-    width: 0 !important;
-    height: 0 !important;
+    width: 0px !important;
+    height: 0px !important;
+    max-width: 0px !important;
+    max-height: 0px !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    background: transparent !important;
+    border: none !important;
   }
 
-  :global(::-webkit-scrollbar-track) {
-    background: var(--background);
+  :global(::-webkit-scrollbar-track),
+  :global(::-webkit-scrollbar-track-piece) {
+    background: transparent !important;
+    border: none !important;
   }
 
   :global(::-webkit-scrollbar-thumb) {
-    background: #F67D31;
-    border-radius: 4px;
+    background: #F67D31 !important;
+    border-radius: 9999px !important;
+    border: none !important;
   }
 
   :global(::-webkit-scrollbar-thumb:hover) {
-    background: #d66520;
+    background: #e56c20 !important;
   }
 
-  :global(*) {
-    scrollbar-width: thin;
-    scrollbar-color: #F67D31 var(--background);
+  :global(::-webkit-scrollbar-corner) {
+    background: transparent !important;
   }
 
   :global(:where(code, pre)) {
@@ -66,48 +86,12 @@
   }
 
   :global(::selection) {
-    background: var(--accent);
+    background-color: var(--accent);
     color: var(--black);
   }
 
-  :global(:focus) {
-    outline: 4px solid var(--text);
-    outline-offset: 4px;
-  }
-
-  :global(:focus:not(:focus-visible)) {
-    outline: none;
-  }
-}
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes reveal {
-  0% {
-    transform: scale3d(0, 1, 1);
-    transform-origin: left;
-  }
-
-  50% {
-    transform: scale3d(1, 1, 1);
-    transform-origin: left;
-  }
-
-  51% {
-    transform: scale3d(1, 1, 1);
-    transform-origin: right;
-  }
-
-  100% {
-    transform: scale3d(0, 1, 1);
-    transform-origin: right;
+  :global(a) {
+    color: inherit;
+    text-decoration: none;
   }
 }

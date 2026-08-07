@@ -83,55 +83,58 @@
   justify-content: center;
   height: 100%;
   width: 100%;
+  max-width: 100%;
 }
 
 .model {
-  --width: 180%;
+  --width: 100%;
   --aspectRatio: 12 / 10;
 
-  min-width: var(--width);
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   aspect-ratio: var(--aspectRatio);
   display: grid;
   position: relative;
 
   &[data-device='laptop'] {
-    top: 6%;
-    left: 14%;
+    top: 4%;
+    left: 2%;
 
     @media (--mediaDesktop) {
-      --width: 180%;
+      --width: 120%;
     }
 
     @media (--mediaTablet) {
-      --width: 140%;
+      --width: 100%;
 
-      top: 10%;
+      top: 0;
       left: 0;
     }
   }
 
   &[data-device='phone'] {
-    --width: 116%;
+    --width: 100%;
     --aspectRatio: 7 / 10;
 
-    top: 5%;
-    left: -10%;
+    top: 0;
+    left: 0;
 
     @media (--mediaDesktop) {
-      --width: 108%;
+      --width: 100%;
 
       left: 0;
     }
 
     @media (--mediaTablet) {
-      --width: 108%;
+      --width: 100%;
 
       left: 0;
       max-height: 60vh;
     }
 
     @media (--mediaMobile) {
-      --width: 108%;
+      --width: 100%;
 
       left: 0;
       max-height: none;
@@ -160,13 +163,13 @@
   &[data-device='laptop'] {
     position: absolute;
     width: 100%;
-    right: -36%;
+    right: 0;
     bottom: 24%;
     transform: translateY(50%);
 
     @media (--mediaTablet) {
       width: 80%;
-      right: -10%;
+      right: 0;
       bottom: 18%;
     }
 
