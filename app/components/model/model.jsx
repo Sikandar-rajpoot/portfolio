@@ -96,10 +96,10 @@ export const Model = ({
       alpha: true,
       antialias: false,
       powerPreference: 'high-performance',
-      failIfMajorPerformanceCaveat: true,
+      failIfMajorPerformanceCaveat: false,
     });
 
-    renderer.current.setPixelRatio(2);
+    renderer.current.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
     renderer.current.setSize(clientWidth, clientHeight);
     renderer.current.outputColorSpace = SRGBColorSpace;
 

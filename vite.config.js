@@ -1,7 +1,4 @@
-import {
-  vitePlugin as remix,
-  cloudflareDevProxyVitePlugin as remixCloudflareDevProxy,
-} from '@remix-run/dev';
+import { vitePlugin as remix } from '@remix-run/dev';
 import { vercelPreset } from '@vercel/remix/vite';
 import { defineConfig } from 'vite';
 import jsconfigPaths from 'vite-jsconfig-paths';
@@ -20,6 +17,15 @@ export default defineConfig({
   server: {
     port: 7777,
   },
+  optimizeDeps: {
+    include: [
+      'three',
+      'three-stdlib',
+      'framer-motion',
+      'react-dom/server.node',
+      'isbot',
+    ],
+  },
   plugins: [
     mdx({
       rehypePlugins: [[rehypeImgSize, { dir: 'public' }], rehypeSlug, rehypePrism],
@@ -33,7 +39,6 @@ export default defineConfig({
         v3_relativeSplatPath: true,
         v3_throwAbortReason: true,
         v3_lazyRouteDiscovery: true,
-        v3_singleFetch: true,
       },
       routes(defineRoutes) {
         return defineRoutes(route => {
