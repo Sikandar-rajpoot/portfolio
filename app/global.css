@@ -1,38 +1,39 @@
 @layer theme, base, components, layout;
 
-/* Top-level global scrollbar rules - overrides cascade layers in production builds */
-:global(html, body) {
+/* Global root layout & custom modern scrollbar matching orange #F67D31 theme */
+html, body {
   background: var(--background);
   margin: 0;
   padding: 0;
   width: 100%;
-  max-width: 100%;
+  max-width: 100vw;
   overflow-x: hidden !important;
   opacity: 1;
   scrollbar-width: thin;
   scrollbar-color: #F67D31 transparent;
 }
 
-:global(html, body):focus {
+html, body:focus {
   outline: none;
 }
 
-:global(::-webkit-scrollbar) {
+::-webkit-scrollbar {
   width: 6px !important;
   height: 6px !important;
   background: transparent !important;
 }
 
-:global(::-webkit-scrollbar-button),
-:global(::-webkit-scrollbar-button:single-button),
-:global(::-webkit-scrollbar-button:vertical:decrement),
-:global(::-webkit-scrollbar-button:vertical:increment),
-:global(::-webkit-scrollbar-button:horizontal:decrement),
-:global(::-webkit-scrollbar-button:horizontal:increment),
-:global(::-webkit-scrollbar-button:start:decrement),
-:global(::-webkit-scrollbar-button:end:increment),
-:global(::-webkit-scrollbar-button:start:increment),
-:global(::-webkit-scrollbar-button:end:decrement) {
+/* Eliminate all webkit scrollbar arrow buttons */
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-button:single-button,
+::-webkit-scrollbar-button:vertical:decrement,
+::-webkit-scrollbar-button:vertical:increment,
+::-webkit-scrollbar-button:horizontal:decrement,
+::-webkit-scrollbar-button:horizontal:increment,
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment,
+::-webkit-scrollbar-button:start:increment,
+::-webkit-scrollbar-button:end:decrement {
   display: none !important;
   width: 0px !important;
   height: 0px !important;
@@ -44,28 +45,28 @@
   border: none !important;
 }
 
-:global(::-webkit-scrollbar-track),
-:global(::-webkit-scrollbar-track-piece) {
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-track-piece {
   background: transparent !important;
   border: none !important;
 }
 
-:global(::-webkit-scrollbar-thumb) {
+::-webkit-scrollbar-thumb {
   background: #F67D31 !important;
   border-radius: 9999px !important;
   border: none !important;
 }
 
-:global(::-webkit-scrollbar-thumb:hover) {
+::-webkit-scrollbar-thumb:hover {
   background: #e56c20 !important;
 }
 
-:global(::-webkit-scrollbar-corner) {
+::-webkit-scrollbar-corner {
   background: transparent !important;
 }
 
 @layer base {
-  :global(html) {
+  html {
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -80,16 +81,16 @@
     }
   }
 
-  :global(:where(code, pre)) {
+  :where(code, pre) {
     font-family: var(--monoFontStack);
   }
 
-  :global(::selection) {
+  ::selection {
     background-color: var(--accent);
     color: var(--black);
   }
 
-  :global(a) {
+  a {
     color: inherit;
     text-decoration: none;
   }
