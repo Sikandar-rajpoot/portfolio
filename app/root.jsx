@@ -49,7 +49,7 @@ export const links = () => [
 export const loader = async ({ request, context }) => {
   const { url } = request;
   const { pathname } = new URL(url);
-  const pathnameSliced = pathname.endsWith('/') ? pathname.slice(0, -1) : url;
+  const pathnameSliced = pathname === '/' ? '' : pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
   const canonicalUrl = `${config.url}${pathnameSliced}`;
 
   const { getSession, commitSession } = createCookieSessionStorage({
@@ -115,22 +115,23 @@ export default function App() {
   }, []);
 
   return (
-    <html lang="en">
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <html lang="en" suppressHydrationWarning>
+      <head suppressHydrationWarning>
+        <meta charSet="utf-8" suppressHydrationWarning />
+        <meta name="viewport" content="width=device-width, initial-scale=1" suppressHydrationWarning />
         {/* Theme color doesn't support oklch so I'm hard coding these hexes for now */}
-        <meta name="theme-color" content={theme === 'dark' ? '#111' : '#F2F2F2'} />
+        <meta name="theme-color" content={theme === 'dark' ? '#111' : '#F2F2F2'} suppressHydrationWarning />
         <meta
           name="color-scheme"
           content={theme === 'light' ? 'light dark' : 'dark light'}
+          suppressHydrationWarning
         />
-        <style dangerouslySetInnerHTML={{ __html: themeStyles }} />
+        <link rel="canonical" href={canonicalUrl} />
         <Meta />
         <Links />
-        <link rel="canonical" href={canonicalUrl} />
+        <style dangerouslySetInnerHTML={{ __html: themeStyles }} />
       </head>
-      <body data-theme={theme}>
+      <body data-theme={theme} suppressHydrationWarning>
         <ThemeProvider theme={theme} toggleTheme={toggleTheme}>
           <Progress />
           <VisuallyHidden showOnFocus as="a" className={styles.skip} href="#main-content">
@@ -157,17 +158,17 @@ export function ErrorBoundary() {
   const error = useRouteError();
 
   return (
-    <html lang="en">
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#111" />
-        <meta name="color-scheme" content="dark light" />
+    <html lang="en" suppressHydrationWarning>
+      <head suppressHydrationWarning>
+        <meta charSet="utf-8" suppressHydrationWarning />
+        <meta name="viewport" content="width=device-width, initial-scale=1" suppressHydrationWarning />
+        <meta name="theme-color" content="#111" suppressHydrationWarning />
+        <meta name="color-scheme" content="dark light" suppressHydrationWarning />
         <style dangerouslySetInnerHTML={{ __html: themeStyles }} />
         <Meta />
         <Links />
       </head>
-      <body data-theme="dark">
+      <body data-theme="dark" suppressHydrationWarning>
         <Error error={error} />
         <ScrollRestoration />
         <Scripts />
